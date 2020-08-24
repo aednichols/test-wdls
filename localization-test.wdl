@@ -2,7 +2,8 @@ version 1.0
 
 workflow localizer_workflow {
   input {
-    String disk_size_gb
+    String blah
+    Int disk_size_gb
     String disk_type_hdd_ssd
     Int vm_memory
     Int vm_cpu
@@ -25,7 +26,7 @@ workflow localizer_workflow {
 
 task localizer_task {
   input {
-    String disk_size_gb
+    Int disk_size_gb
     String disk_type_hdd_ssd
     Int vm_memory
     Int vm_cpu
