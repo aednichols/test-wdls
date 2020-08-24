@@ -2,7 +2,7 @@ version 1.0
 
 workflow localizer_workflow {
   input {
-    String disk_size_gb_ZARDOZ
+    String disk_size_gb
     String disk_type_hdd_ssd
     Int vm_memory
     Int vm_cpu
@@ -11,7 +11,7 @@ workflow localizer_workflow {
   
   call localizer_task {
     input:
-      disk_size_gb = disk_size_gb_ZARDOZ,
+      disk_size_gb = disk_size_gb,
       disk_type_hdd_ssd = disk_type_hdd_ssd,
       vm_memory = vm_memory,
       vm_cpu = vm_cpu,
