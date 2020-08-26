@@ -4,7 +4,7 @@ workflow localizer_workflow {
   input {
     Int disk_size_gb
     String disk_type_hdd_ssd
-    Int vm_memory_gb
+    Int vm_memory
     Int vm_cpu
     File input_file
   }
@@ -13,7 +13,7 @@ workflow localizer_workflow {
     input:
       disk_size_gb = disk_size_gb,
       disk_type_hdd_ssd = disk_type_hdd_ssd,
-      vm_memory = vm_memory_gb,
+      vm_memory = vm_memory,
       vm_cpu = vm_cpu,
       input_file = input_file
   }
