@@ -4,7 +4,7 @@ workflow localizer_workflow {
   input {
     Int disk_size_gb
     String disk_type_hdd_ssd
-    Int vm_memory
+    Int vm_memory_gb
     Int vm_cpu
     File input_file
   }
