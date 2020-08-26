@@ -2,6 +2,7 @@ version 1.0
 
 workflow localizer_workflow {
   input {
+    Int zardoz
     Int disk_size_gb
     String disk_type_hdd_ssd
     Int vm_memory
