@@ -15,7 +15,7 @@ workflow localizer_workflow {
       disk_type_hdd_ssd = disk_type_hdd_ssd,
       vm_memory = vm_memory,
       vm_cpu = vm_cpu,
-      input_file = input_file
+      input_file = input_file_blah
   }
   
   output {
