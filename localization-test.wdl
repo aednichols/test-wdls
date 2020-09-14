@@ -6,7 +6,7 @@ workflow localizer_workflow {
     String disk_type_hdd_ssd
     Int vm_memory
     Int vm_cpu
-    File input_file_blah
+    File input_file
   }
   
   call localizer_task {
@@ -15,7 +15,7 @@ workflow localizer_workflow {
       disk_type_hdd_ssd = disk_type_hdd_ssd,
       vm_memory = vm_memory,
       vm_cpu = vm_cpu,
-      input_file = input_file_blah
+      input_file = input_file
   }
   
   output {
