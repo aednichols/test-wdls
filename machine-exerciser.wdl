@@ -15,7 +15,7 @@ workflow machine_exerciser {
       disk_type_hdd_ssd = disk_type_hdd_ssd,
       vm_memory = vm_memory,
       vm_cpu = vm_cpu,
-      dns_lookup
+      dns_lookup = dns_lookup
   }
 
   output {
