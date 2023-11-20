@@ -44,4 +44,8 @@ task noop_task {
   output {
     String out = read_string(stdout())
   }
+
+  meta {
+    volatile: true
+  }
 }
