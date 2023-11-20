@@ -13,8 +13,7 @@ workflow localizer_workflow {
       disk_size_gb = disk_size_gb,
       disk_type_hdd_ssd = disk_type_hdd_ssd,
       vm_memory = vm_memory,
-      vm_cpu = vm_cpu,
-      input_file = input_file
+      vm_cpu = vm_cpu
   }
 
   output {
@@ -28,7 +27,6 @@ task noop_task {
     String disk_type_hdd_ssd
     Int vm_memory
     Int vm_cpu
-    File input_file
   }
 
   command <<<
