@@ -1,6 +1,6 @@
 version 1.0
 
-workflow localizer_workflow {
+workflow machine_exerciser {
   input {
     Int disk_size_gb = 500
     String disk_type_hdd_ssd = "SSD"
