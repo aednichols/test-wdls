@@ -33,6 +33,7 @@ task noop_task {
   }
 
   command <<<
+    dnf -y install bind-utils
     dig ~{dns_lookup}
     pwd && ls -lah .
   >>>  
