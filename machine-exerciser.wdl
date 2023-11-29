@@ -35,7 +35,6 @@ task noop_task {
   command <<<
     dnf -y install bind-utils
     dig ~{dns_lookup}
-    curl ifconfig.co/json
     ifconfig
   >>>  
 
