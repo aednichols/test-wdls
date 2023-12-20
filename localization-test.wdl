@@ -43,6 +43,10 @@ task localizer_task {
     cpu: vm_cpu
     memory: vm_memory + " GB"
   }
+
+  meta {
+    volatile: true
+  }
   
   output {
     String out = read_string(stdout())
