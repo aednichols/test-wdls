@@ -2,10 +2,10 @@ version 1.0
 
 workflow localizer_workflow {
   input {
-    Int disk_size_gb
-    String disk_type_hdd_ssd
-    Int vm_memory
-    Int vm_cpu
+    Int disk_size_gb = 500
+    String disk_type_hdd_ssd = "SSD"
+    Int vm_memory = 16
+    Int vm_cpu = 4
     File input_file
   }
   
@@ -39,6 +39,7 @@ task localizer_task {
   runtime {
   	docker: "ubuntu:latest"
     disks: "local-disk " + disk_size_gb + " " + disk_type_hdd_ssd
+    disk: disk_size_gb + " GB"
     cpu: vm_cpu
     memory: vm_memory + " GB"
   }
