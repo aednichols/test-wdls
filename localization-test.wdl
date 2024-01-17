@@ -1,11 +1,16 @@
 version 1.0
 
+# 16 vCPUs gets us into the highest 1200 MB/s disk bandwidth bucket [0]
+# A 2.5 TB disk is the smallest to max out that 1200 MB/s [1]
+# [0] https://cloud.google.com/compute/docs/disks/performance#throughput_limits_for_zonal
+# [1] https://cloud.google.com/compute/docs/disks/performance#n1_vms
+# https://cloud.google.com/compute/docs/network-bandwidth#vm-out-baseline
 workflow localizer_workflow {
   input {
-    Int disk_size_gb = 500
+    Int disk_size_gb = 2500
     String disk_type_hdd_ssd = "SSD"
-    Int vm_memory = 16
-    Int vm_cpu = 4
+    Int vm_memory = 32
+    Int vm_cpu = 16
     File input_file
   }
   
@@ -19,7 +24,8 @@ workflow localizer_workflow {
   }
   
   output {
-    String o = localizer_task.out
+    String stdout = localizer_task.stdout
+    File output_file = localizer_task.output_file
   }
 }
 
@@ -37,11 +43,12 @@ task localizer_task {
   >>>  
   
   runtime {
-  	docker: "ubuntu:latest"
+    docker: "rockylinux:9"
     disks: "local-disk " + disk_size_gb + " " + disk_type_hdd_ssd
     disk: disk_size_gb + " GB"
     cpu: vm_cpu
     memory: vm_memory + " GB"
+    cpuPlatform: "Intel Ice Lake"
   }
 
   meta {
@@ -49,6 +56,7 @@ task localizer_task {
   }
   
   output {
-    String out = read_string(stdout())
+    String stdout = read_string(stdout())
+    File output_file = sub(input_file, 'gs://', '')
   }
 }
