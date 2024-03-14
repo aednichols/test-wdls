@@ -7,6 +7,7 @@ workflow machine_exerciser {
     Int vm_memory = 32
     Int vm_cpu = 8
     String dns_lookup = "broadinstitute.org"
+    String image = "rockylinux:9"
   }
 
   call noop_task {
@@ -15,7 +16,8 @@ workflow machine_exerciser {
       disk_type_hdd_ssd = disk_type_hdd_ssd,
       vm_memory = vm_memory,
       vm_cpu = vm_cpu,
-      dns_lookup = dns_lookup
+      dns_lookup = dns_lookup,
+      image = image
   }
 
   output {
@@ -30,6 +32,7 @@ task noop_task {
     Int vm_memory
     Int vm_cpu
     String dns_lookup
+    String image
   }
 
   command <<<
@@ -38,7 +41,7 @@ task noop_task {
   >>>  
 
   runtime {
-    docker: "rockylinux:9"
+    docker: image
     disks: "local-disk " + disk_size_gb + " " + disk_type_hdd_ssd
     disk: disk_size_gb + " GB"
     cpu: vm_cpu
