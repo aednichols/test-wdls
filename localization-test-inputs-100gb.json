@@ -1,0 +1,3 @@
+{
+  "localizer_workflow.input_file": "gs://genomics-public-data/1000-genomes/vcf/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.vcf"
+}
