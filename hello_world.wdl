@@ -22,7 +22,7 @@ task hello_world {
   }
 
   command <<<
-  	cat /etc/os-release
+    cat /etc/os-release
     uname -a
     cat /proc/cpuinfo
   >>>
