@@ -32,7 +32,7 @@ task hello_world {
   }
 
   meta {
-    volatile: true
+    volatile: false
   }
 
   output {
